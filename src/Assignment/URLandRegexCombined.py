@@ -11,6 +11,10 @@ online = requests.get("http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign
 pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
 file = online.text.split('\n')
 
+for line in file[:1]:
+    length = line
+    print(line)
+    
 for line in file[1:-1]:
     m = pat.match(line)
     command = m.group(1)
@@ -18,7 +22,6 @@ for line in file[1:-1]:
     x2 = m.group(3)
     y1 = m.group(4)
     y2 = m.group(5)
-    
     arr =[command, x1, x2, y1, y2]
     print(arr)
     
