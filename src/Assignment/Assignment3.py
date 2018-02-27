@@ -16,6 +16,5 @@ x1 = m.group(2)
 x2 = m.group(3)
 y1 = m.group(4)
 y2 = m.group(5)
-
-print(command, x1, x2, y1, y2)
+print( x1, x2, y1, y2)
 
