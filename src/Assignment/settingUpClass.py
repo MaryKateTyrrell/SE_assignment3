@@ -7,6 +7,7 @@ Created on 28 Feb 2018
 class lightTest():
     
     lights = None
+    lightcounter = 0
     '''
     this class will test the number of lights that are left on
     
@@ -18,9 +19,24 @@ class lightTest():
         self.size = size
         self.lights = [[False]*size for _ in range(size)]
         
-    def command(self, c, x1, y1, x2, y2):
+        def light_count(self):
+            for i in self.lights:
+                self.lightcounter = 0
+                for j in i:
+                    if j == "True":
+                        self.lightcounter +=1
+            return self.lightcounter
+       
         
-        '''Take in the parsed variables and use them accordingly'''
+switchboard = lightTest(5)
+print(switchboard.lights)
+
+        
+        
+        
+''' def command(self, c, x1, y1, x2, y2):
+        
+        ''''''Take in the parsed variables and use them accordingly''''''
     
         self.c = c  #corresponds to group1
         self.x1 = x1    #corresponds to group2
@@ -28,7 +44,7 @@ class lightTest():
         self.x2 = x2    #corresponds to group4
         self.y2 = y2    #corresponds to group5
         
-        '''check the nature of the commands and adjust the cordinates as so'''
+        ''''''check the nature of the commands and adjust the cordinates as so''''''
         
         if c == "turn on":
             
@@ -47,15 +63,9 @@ class lightTest():
                     if self.lights[i][j] == True:
                         self.lights[i][j] = False
                     if self.lights[i][j] == False:
-                        self.lights[i][j] = True
+                        self.lights[i][j] = True'''
                 
-        def light_count(self):
-            for i in self.lights:
-                lightcounter = 0
-                for j in i:
-                    if j == "True":
-                        lightcounter +=1
-            return lightcounter
+    
                 
             
                         

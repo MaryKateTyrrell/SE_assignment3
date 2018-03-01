@@ -9,14 +9,22 @@ import pytest
 import unittest
 import pandas as pd
 import numpy as np
-import URLandRegexCombined
+import settingUpClass
 
-class Test():
+class Test(unittest.TestCase):
     
-    def test_Input(self):
+    def test_lightcounter(self):
+        
+        '''Testing the counter works in the class i set up '''
+        
+        lightcounter = 0
+        result = settingUpClass.lightTest(5)
+        result.lightcounter
+        self.assert_(result.lightcounter == 0)
+        
         
     
     
 
-if __name__ == '__main__':
+
     
