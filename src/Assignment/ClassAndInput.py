@@ -19,13 +19,15 @@ class lightTest():
     
     lights = None
     lightcounter = 0
+    
     '''
     this class will test the number of lights that are left on
     
     '''
     def __init__(self, size):
         
-        '''initialise the multidimensional array, to the size of the input'''
+        '''initialize the multidimensional array, to the size of the input 
+        or the first line in the file'''
         
         self.size = size
         self.lights = [[False]*size for _ in range(size)]
@@ -40,7 +42,10 @@ class lightTest():
         self.x2 = x2    #corresponds to group4
         self.y2 = y2    #corresponds to group5
         
-        '''check the nature of the commands and adjust the cordinates as so'''
+        '''check the nature of the commands and adjust the coordinates as so
+        turn on - turn those coordinates to true
+        turn off - turn those coordinates to false
+        switch - turn the coordinates to true and the others off'''
         
         if self.c == "turn on":
             
@@ -62,18 +67,22 @@ class lightTest():
                         self.lights[i][j] = True
                         
         for i in self.lights:
+            
+            '''count the number of coordinates that are True
+            note: this is a multidimensional set up,
+            thought process was - square multiplication table from
+            programming '''
+            
             for j in i:
                 if j == True:
                     self.lightcounter +=1
-            print (self.lightcounter)
+        print("there are now", self.lightcounter, "lights turned on")
         
         
                         
 for line in file[:1]:
     length = int(line)
     switchboard = lightTest(length)
-    print(length)
-
 for line in file[1:-1]:
         m = pat.match(line)
         command = m.group(1)
