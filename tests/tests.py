@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pytest
-import pandas as pd
-import numpy as np
-
-
 __author__ = "Mary Kate Tyrrell"
 __copyright__ = "Mary Kate Tyrrell"
 __license__ = "mit"
 
+import pytest
+import unittest
+import pandas as pd
+import numpy as np
+import URLandRegexCombined
 
-def testInput(filename):
-    if filename.exists():
-        return True
-    else:
-        return False
+class Test():
+    
+    def test_Input(self):
+        
+    
+    
+
+if __name__ == '__main__':
     
