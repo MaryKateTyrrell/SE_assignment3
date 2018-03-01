@@ -29,7 +29,8 @@ class lightTest():
        
         
 switchboard = lightTest(5)
-print(switchboard.lights)
+switchboard.lights
+print(switchboard.lightcounter)
 
         
         

@@ -21,10 +21,8 @@ class Test(unittest.TestCase):
         result = settingUpClass.lightTest(5)
         result.lightcounter
         self.assert_(result.lightcounter == 0)
-        
-        
-    
-    
-
+         
+if __name__ == '__main__':
+    unittest.main
 
     
