@@ -9,12 +9,12 @@ import requests
 from fileinput import filename
 
 
-online = requests.get("http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt")
+
+
+#online = requests.get("http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt")
 pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
-file = online.text.split('\n')
+#file = online.text.split('\n')
 
-
- 
 class lightTest():
     
     lights = None
@@ -79,18 +79,18 @@ class lightTest():
         print("there are now", self.lightcounter, "lights turned on")
         
         
-                        
-for line in file[:1]:
-    length = int(line)
-    switchboard = lightTest(length)
-for line in file[1:-1]:
-        m = pat.match(line)
-        command = m.group(1)
-        y1 = m.group(2)
-        x1 = m.group(3)
-        y2 = m.group(4)
-        x2 = m.group(5)
-        switchboard.command(command, int(y1), int(x1), int(y2), int(x2))
+def parseFile(file):                      
+    for line in file[:1]:
+        length = int(line)
+        switchboard = lightTest(length)
+        for line in file[1:-1]:
+            m = pat.match(line)
+            command = m.group(1)
+            y1 = m.group(2)
+            x1 = m.group(3)
+            y2 = m.group(4)
+            x2 = m.group(5)
+            switchboard.command(command, int(y1), int(x1), int(y2), int(x2))
     
   
         
