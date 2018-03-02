@@ -5,6 +5,8 @@ Created on 2 Mar 2018
 '''
 import sys
 import click
+import ClassAndInput
+from ClassAndInput import parseFile
 click.disable_unicode_literals_warning= True
 
 @click.command()
@@ -13,6 +15,8 @@ click.disable_unicode_literals_warning= True
 def main(input=None):
     
     '''console script for lightTest'''
+    
+    parseFile(input)
     
     print('input', input)
     return 0
