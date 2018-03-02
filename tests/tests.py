@@ -5,6 +5,9 @@ __author__ = "Mary Kate Tyrrell"
 __copyright__ = "Mary Kate Tyrrell"
 __license__ = "mit"
 
+import sys
+sys.path.append('.')
+
 import pytest
 import unittest
 import pandas as pd
