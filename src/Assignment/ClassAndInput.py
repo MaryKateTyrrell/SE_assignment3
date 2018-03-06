@@ -14,7 +14,7 @@ pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*th
 
 class lightTest():
     
-    lights = 0
+    lights = None
      
     '''
     this class will test the number of lights that are left on
@@ -74,7 +74,6 @@ class lightTest():
         
         
 def parseFile(file): 
-    count = 0
     file1  = open(file, 'r')
     file1 = file1.readlines()                  
     for line in file1[:1]:
@@ -82,7 +81,6 @@ def parseFile(file):
         length = int(line)
         switchboard = lightTest(length)
     for line in file1[1:]:
-        count += 1
         m = pat.match(line)
         command = m.group(1)
         x1 = m.group(2)
@@ -90,7 +88,6 @@ def parseFile(file):
         x2 = m.group(4)
         y2 = m.group(5)
         switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-    print("the count is", count)
     print(switchboard.count())
         
             
