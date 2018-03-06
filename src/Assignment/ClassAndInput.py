@@ -8,7 +8,7 @@ import re
 import requests
 from fileinput import filename
 
-#online = requests.get("http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt")
+#file = requests.get("http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt")
 pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
 #file = online.text.split('\n')
 
@@ -74,22 +74,47 @@ class lightTest():
         
         
 def parseFile(file): 
-    file1  = open(file, 'r')
-    file1 = file1.readlines()                  
-    for line in file1[:1]:
-        print("the size is", line)
-        length = int(line)
-        switchboard = lightTest(length)
-    for line in file1[1:]:
-        m = pat.match(line)
-        command = m.group(1)
-        x1 = m.group(2)
-        y1 = m.group(3)
-        x2 = m.group(4)
-        y2 = m.group(5)
-        switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-    print(switchboard.count())
+    
+    if file.startswith('http'):
+        file1 = requests.get(file)
+        file1 = file1.text.split('\n')
         
+        
+        for line in file1[:1]:
+            print("the size is", line)
+            length = int(line)
+            switchboard = lightTest(length)
+        for line in file1[1:-1]:
+            m = pat.match(line)
+            command = m.group(1)
+            x1 = m.group(2)
+            y1 = m.group(3)
+            x2 = m.group(4)
+            y2 = m.group(5)
+            switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
+        print(switchboard.count())
+        
+    else:
+    #import sys
+    #file = sys.argv[2]
+        file1  = open(file, 'r')
+        file1 = file1.readlines()      
+        for line in file1[:1]:
+            print("the size is", line)
+            length = int(line)
+            switchboard = lightTest(length)
+            for line in file1[1:]:
+                m = pat.match(line)
+                command = m.group(1)
+                x1 = m.group(2)
+                y1 = m.group(3)
+                x2 = m.group(4)
+                y2 = m.group(5)
+                switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
+        print(switchboard.count())
+     
+     
+ 
             
   
         
