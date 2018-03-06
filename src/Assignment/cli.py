@@ -16,8 +16,6 @@ def main(input=None):
     
     '''console script for lightTest'''
     
-    
-    
     print('input', input)
     parseFile(input)
     return 0

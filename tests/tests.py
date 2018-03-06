@@ -30,13 +30,14 @@ a = lightTest(5)
 for row in a.lights:
     print(row)
     c = "turn on"
-a.command("turn on", 0, 0, 2, 2)
+a.command("turn on", 1, 1,4 ,4)
 print(a.count())
-a.command("turn off", 0, 0, 1, 1)
+
+''''a.command("turn off", 0, 0, 1, 1)
 print(a.count())
 
 a.command("switch", 0, 0, 1, 1)
-print(a.count())
+print(a.count())'''
 
 
 for row in a.lights:
