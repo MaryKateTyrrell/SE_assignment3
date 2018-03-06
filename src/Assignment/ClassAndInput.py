@@ -14,8 +14,6 @@ pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*th
 
 class lightTest():
     
-    lights = None
-    lightcounter = 0
     
     '''
     this class will test the number of lights that are left on
@@ -29,40 +27,41 @@ class lightTest():
         self.size = size
         self.lights = [[False]*size for _ in range(size)]
         
-    def command(self, c, y1, x1, y2, x2):
+    def command(self, c, x1, y1, x2, y2):
         
         '''Take in the parsed variables and use them accordingly'''
     
-        self.c = c  #corresponds to group1
-        self.x1 = x1  #corresponds to group2
+        #corresponds to group1
+        '''  self.x1 = x1  #corresponds to group2
         self.y1 = y1    #corresponds to group3
         self.x2 = x2    #corresponds to group4
-        self.y2 = y2    #corresponds to group5
+        self.y2 = y2    #corresponds to group5'''
         
         '''check the nature of the commands and adjust the coordinates as so
         turn on - turn those coordinates to true
         turn off - turn those coordinates to false
         switch - turn the coordinates to true and the others off'''
         
-        if self.c == "turn on":
-            
-            for i in (self.x1,self.x2):
-                for j in (self.y1, self.y2):
+        
+        if c == "turn on":
+            for i in range(y1, y2 +1):
+                for j in range(x1, x2 +1):
                     self.lights[i][j] = True
                 
-        if self.c == "turn off":
-            for i in (self.x1,self.x2):
-                for j in (self.y1, self.y2):
+        if c == "turn off":
+            for i in range(y1, y2 +1):
+                for j in range(x1, x2 +1):
                     self.lights[i][j] = False
                       
-        if self.c == "switch":
-            for i in (self.x1,self.x2):
-                for j in (self.y1, self.y2):
+        if c == "switch":
+            for i in range(y1, y2 +1):
+                for j in range(x1, x2 +1):
                     if self.lights[i][j] == True:
                         self.lights[i][j] = False
                     if self.lights[i][j] == False:
                         self.lights[i][j] = True
-                        
+    def count(self):   
+        lightcounter = 0                                 
         for i in self.lights:
             
             '''count the number of coordinates that are True
@@ -72,25 +71,26 @@ class lightTest():
             
             for j in i:
                 if j == True:
-                    self.lightcounter +=1
-        print("there are now", self.lightcounter, "lights turned on")
+                    lightcounter +=1
+        return lightcounter
         
         
 def parseFile(file): 
     file1  = open(file, 'r')
     file1 = file1.readlines()                  
     for line in file1[:1]:
-        print(line)
+        print("the size is", line)
         length = int(line)
         switchboard = lightTest(length)
         for line in file1[1:-1]:
             m = pat.match(line)
             command = m.group(1)
-            y1 = m.group(2)
-            x1 = m.group(3)
-            y2 = m.group(4)
-            x2 = m.group(5)
-            switchboard.command(command, int(y1), int(x1), int(y2), int(x2))
+            x1 = m.group(2)
+            y1 = m.group(3)
+            x2 = m.group(4)
+            y2 = m.group(5)
+            switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
+        print(switchboard.count())
             
   
         

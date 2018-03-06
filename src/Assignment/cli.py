@@ -16,9 +16,10 @@ def main(input=None):
     
     '''console script for lightTest'''
     
-    parseFile(input)
+    
     
     print('input', input)
+    parseFile(input)
     return 0
 
 if __name__ == "__main__":
