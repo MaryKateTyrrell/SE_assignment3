@@ -36,6 +36,14 @@ class lightTest():
         
         #still getting an index out of range error - trying to -1, because we start counting from zero
         #so if we start from zero we want to continue to 999. 
+        if x1 < 0:
+            x1 = 0
+        if x2 < 0:
+            x2 = 0
+        if y1 < 0:
+            y1 = 0
+        if y2 < 0:
+            y2 = 0
         if x1 > self.size -1:
             x1 = self.size -1
         if x2 > self.size-1:
@@ -53,19 +61,20 @@ class lightTest():
         switch - turn the coordinates to true and the others off'''
         
         if c == "turn on" or c == "turn on ":
-            for i in range(y1, y2+1):
-                for j in range(x1,x2+1):
+            for i in range(min(y1, y2), max(y1, y2)+1):
+                for j in range(min(x1,x2), max(x1,x2)+1):
                     self.lights[i][j] = True
                 
         if c == "turn off" or c == "turn off ":
-            for i in range(y1, y2+1):
-                for j in range(x1,x2+1):
+            for i in range(min(y1, y2), max(y1, y2)+1):
+                for j in range(min(x1,x2),max(x1,x2)+1):
                     self.lights[i][j] = False
                       
         if c == "switch" or c == "switch ":
-            for i in range(y1, y2+1):
-                for j in range(x1,x2+1):
+            for i in range(min(y1, y2), max(y1, y2)+1):
+                for j in range(min(x1,x2), max(x1,x2)+1):
                     self.lights[i][j] = not self.lights[i][j]
+                    
     def count(self): 
         lightcounter = 0                                  
         for i in self.lights:
