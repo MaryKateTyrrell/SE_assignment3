@@ -34,14 +34,16 @@ class lightTest():
         #Making the cordinates equal to size if they are beyond it.
         #found due to error in input file.
         
-        if x1 > self.size:
-            x1 = self.size
-        if x2 > self.size:
-            x2 = self.size
-        if y1 > self.size:
-            y1 = self.size
-        if y2 > self.size:
-            y2 = self.size
+        #still getting an index out of range error - trying to -1, because we start counting from zero
+        #so if we start from zero we want to continue to 999. 
+        if x1 > self.size -1:
+            x1 = self.size -1
+        if x2 > self.size-1:
+            x2 = self.size-1
+        if y1 > self.size-1:
+            y1 = self.size-1
+        if y2 > self.size-1:
+            y2 = self.size-1
         
         '''Take in the parsed variables and use them accordingly'''
         
@@ -102,7 +104,7 @@ def parseFile(file):
                     x2 = find.group(4)
                     y2 = find.group(5)
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-        print(switchboard.count())
+        print("The number of lights left on are", switchboard.count())
         
     else:
         
@@ -123,7 +125,7 @@ def parseFile(file):
                     x2 = find.group(4)
                     y2 = find.group(5)
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-        print(switchboard.count())
+        print("The number of lights left on are", switchboard.count())
      
      
  
