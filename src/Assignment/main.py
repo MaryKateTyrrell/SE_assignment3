@@ -24,7 +24,6 @@ def main(input=None):
     print('#occupied: ', ledTester.countOccupied()) 
     return 0
 
-
 if __name__ == "__main__":
     sys.exit(main())  # pragma: no cover
 

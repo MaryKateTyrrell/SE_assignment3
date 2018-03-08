@@ -31,12 +31,6 @@ class lightTest():
     def command(self, c, x1, y1, x2, y2):
         
         '''Take in the parsed variables and use them accordingly'''
-    
-        #corresponds to group1
-        '''  self.x1 = x1  #corresponds to group2
-        self.y1 = y1    #corresponds to group3
-        self.x2 = x2    #corresponds to group4
-        self.y2 = y2    #corresponds to group5'''
         
         '''check the nature of the commands and adjust the coordinates as so
         turn on - turn those coordinates to true

@@ -5,8 +5,11 @@ Created on 2 Mar 2018
 '''
 import sys
 import click
-import ClassAndInput
-from ClassAndInput import parseFile
+
+# from Assignment.ClassAndInput import parseFile
+
+from Assignment.ClassAndInput import parseFile
+ 
 click.disable_unicode_literals_warning= True
 
 @click.command()
