@@ -103,16 +103,16 @@ def parseFile(file):
             print("the size is", line)
             length = int(line)
             switchboard = lightTest(length)
-            for line in file1[1:-1]:
+        for line in file1[1:-1]:
             
-                find = pat.match(line)
-                if find:
-                    command = find.group(1)
-                    x1 = find.group(2)
-                    y1 = find.group(3)
-                    x2 = find.group(4)
-                    y2 = find.group(5)
-                    switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
+            find = pat.match(line)
+            if find:
+                command = find.group(1)
+                x1 = find.group(2)
+                y1 = find.group(3)
+                x2 = find.group(4)
+                y2 = find.group(5)
+                switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
         print("The number of lights left on are", switchboard.count())
         
         
@@ -126,15 +126,15 @@ def parseFile(file):
             print("the size is", line)
             length = int(line)
             switchboard = lightTest(length)
-            for line in file1[1:]:
-                find = pat.match(line)
-                if find:
-                    command = find.group(1)
-                    x1 = find.group(2)
-                    y1 = find.group(3)
-                    x2 = find.group(4)
-                    y2 = find.group(5)
-                    switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
+        for line in file1[1:]:
+            find = pat.match(line)
+            if find:
+                command = find.group(1)
+                x1 = find.group(2)
+                y1 = find.group(3)
+                x2 = find.group(4)
+                y2 = find.group(5)
+                switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
         print("The number of lights left on are", switchboard.count())
         
         
