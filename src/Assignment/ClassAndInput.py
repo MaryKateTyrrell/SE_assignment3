@@ -120,8 +120,7 @@ def parseFile(file):
         #else, use the local files.
    
         file1  = open(file, 'r')
-        file1 = file1.readlines()
-        file1 = file1.split('\n')      
+        file1 = file1.readlines()   
         for line in file1[:1]:
             print("the size is", line)
             length = int(line)
