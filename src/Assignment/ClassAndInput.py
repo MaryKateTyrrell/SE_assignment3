@@ -113,7 +113,7 @@ def parseFile(file):
                     x2 = find.group(4)
                     y2 = find.group(5)
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-        return "The number of lights left on are" + switchboard.count()
+        print("The number of lights left on are", switchboard.count())
         
     else:
         
@@ -134,7 +134,7 @@ def parseFile(file):
                     x2 = find.group(4)
                     y2 = find.group(5)
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
-        return "The number of lights left on are" + switchboard.count()
+        print("The number of lights left on are", switchboard.count())
      
      
  
