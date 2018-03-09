@@ -4,7 +4,6 @@ Created on 1 Mar 2018
 @author: mary-katetyrrell
 '''
 import sys
-import os
 import re
 import requests
 from fileinput import filename
@@ -117,7 +116,7 @@ def parseFile(file):
         print("The number of lights left on are", switchboard.count())
         
         
-    elif file.startswith('data/'):
+    elif file.startswith('data'):
         
         #else, use the local files.
    
