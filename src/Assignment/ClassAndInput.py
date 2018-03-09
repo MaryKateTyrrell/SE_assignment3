@@ -44,7 +44,7 @@ class lightTest():
             y1 = 0
         if y2 < 0:
             y2 = 0
-        if x1 > self.size -1:
+        if x1 > self.size-1:
             x1 = self.size -1
         if x2 > self.size-1:
             x2 = self.size-1
