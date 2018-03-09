@@ -4,6 +4,7 @@ Created on 1 Mar 2018
 @author: mary-katetyrrell
 '''
 import sys
+import os
 import re
 import requests
 from fileinput import filename
@@ -115,7 +116,8 @@ def parseFile(file):
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
         print("The number of lights left on are", switchboard.count())
         
-    else:
+        
+    elif file.startswith('data/'):
         
         #else, use the local files.
    
@@ -135,6 +137,11 @@ def parseFile(file):
                     y2 = find.group(5)
                     switchboard.command(command, int(x1), int(y1), int(x2), int(y2))
         print("The number of lights left on are", switchboard.count())
+        
+        
+    else:
+        print("unfortunately", file, "does not exist")
+     
      
      
  
